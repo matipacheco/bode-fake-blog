@@ -1,0 +1,23 @@
+{
+  "name": "fake-blog",
+  "version": "1.0.0",
+  "description": "Lambda function that creates fake content for a fake blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matipacheco/node-fake-blog.git"
+  },
+  "author": "Mati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matipacheco/node-fake-blog/issues"
+  },
+  "homepage": "https://github.com/matipacheco/node-fake-blog#readme",
+  "dependencies": {
+    "sequelize": "^5.21.4",
+    "sqlite3": "^4.1.1"
+  }
+}
