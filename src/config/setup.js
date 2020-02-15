@@ -1,5 +1,6 @@
 import sequelizeConnector from "./database";
 import FakePost from "../models/fake_post";
+import User from "../models/user";
 
 sequelizeConnector.authenticate()
   .then(() => {
@@ -13,8 +14,23 @@ sequelizeConnector.authenticate()
 
     FakePost.sync({ force: true }).then(() => {
       console.log('---------------------------------------------');
-      console.log('Database created. BADABUM.');
+      console.log('Posts table created. BADABUM-BADABUM.');
       console.log('---------------------------------------------\n');
+    });
+
+    User.sync({ force: true }).then(() => {
+      console.log('---------------------------------------------');
+      console.log('Users table created. BANG! KABOOM!.');
+      console.log('---------------------------------------------\n');
+
+      User.create({
+        username: 'someusername',
+        password: 'somepassword',
+      })
+        .then(user => {
+          console.log("Our doorman has been created!");
+          console.log(user.toJSON());
+        });
     });
   })
   .catch(err => {
