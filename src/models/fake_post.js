@@ -1,9 +1,5 @@
 import Sequelize from "sequelize";
-
-// const sequelize = new Sequelize({
-//   dialect: 'sqlite',
-//   storage: 'path/to/database.sqlite'
-// });
+import sequelizeConnector from "../config/database";
 
 class FakePost extends Sequelize.Model {}
 
@@ -22,5 +18,10 @@ FakePost.init({
   content: {
     type: Sequelize.TEXT,
     allowNull: false
-  },
+  }
+}, {
+  sequelizeConnector,
+  timestamps: true
 });
+
+export default FakePost;
