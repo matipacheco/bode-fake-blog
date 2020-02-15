@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "transpile": "babel src -d transpiled",
-    "transpile_and_run": "babel src -d transpiled && node transpiled/index.js",
+    "setup": "babel src -d transpiled && node transpiled/config/setup.js",
+    "start": "babel src -d transpiled && node transpiled/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

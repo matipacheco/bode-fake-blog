@@ -20,7 +20,8 @@ FakePost.init({
     allowNull: false
   }
 }, {
-  sequelizeConnector,
+  sequelize: sequelizeConnector,
+  modelName: 'fakePost',
   timestamps: true
 });
 
