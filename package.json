@@ -2,8 +2,10 @@
   "name": "fake-blog",
   "version": "1.0.0",
   "description": "Lambda function that creates fake content for a fake blog",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "transpile": "babel src -d transpiled",
+    "transpile_and_run": "babel src -d transpiled && node transpiled/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +19,8 @@
   },
   "homepage": "https://github.com/matipacheco/node-fake-blog#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "sequelize": "^5.21.4",
     "sqlite3": "^4.1.1"
   }
