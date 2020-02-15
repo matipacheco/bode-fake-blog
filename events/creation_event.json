@@ -1,0 +1,8 @@
+{
+  "type": "POST",
+  "payload": {
+    "author": "El Mati",
+    "title": "Breaking news: Smart is the new sexy!",
+    "content": "According to an study developed by our fellow nerdizzles, smart is the new sexy!"
+  }
+}
