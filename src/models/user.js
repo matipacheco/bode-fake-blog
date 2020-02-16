@@ -10,7 +10,15 @@ User.init({
   },
   password: {
     type: Sequelize.STRING,
-    allowNull: false
+    get() {
+      return () => this.getDataValue('password')
+    }
+  },
+  salt: {
+    type: Sequelize.STRING,
+    get() {
+      return () => this.getDataValue('salt')
+    }
   }
 }, {
   sequelize: sequelizeConnector,
