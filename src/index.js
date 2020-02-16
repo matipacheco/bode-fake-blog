@@ -6,8 +6,6 @@ exports.handler = (event, context, callback) => {
     case "POST":
       FakePost.create(event.payload)
         .then(newPost => {
-          console.log("Post successfully created! ID:", newPost.id);
-
           callback(null, {
             statusCode: 200,
             body: newPost.toJSON()
