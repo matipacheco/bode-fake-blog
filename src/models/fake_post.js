@@ -43,7 +43,7 @@ FakePost.init({
     postUrl: {
       type: Sequelize.STRING,
       set(value) {
-        this.setDataValue('title', slugifyTitle(value));
+        this.setDataValue('postUrl', slugifyTitle(value));
       }
     }
   }, {
