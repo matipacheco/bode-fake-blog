@@ -1,19 +1,29 @@
 import User from "./models/user";
+import { encryptPassword } from "./utils";
 
 exports.handler = (event, context, callback) => {
 
   User.findOne({ where: { username: event.username } })
     .then(user => {
-      callback(null, {
-        statusCode: 200,
-        message: "User found",
-        payload: user
-      });
+      if (user.password === encryptPassword(event.password, user.salt)) {
+        callback(null, {
+          statusCode: 200,
+          message: "User found",
+          payload: user
+        });
+
+      } else {
+        callback(null, {
+          statusCode: 200,
+          error: "Invalid password",
+        });
+      }
+
     })
     .catch(() => {
       callback(null, {
         statusCode: 404,
-        message: "User not found",
+        error: "User not found",
       });
     });
 

@@ -32,7 +32,7 @@ export const createSalt = () => {
 };
 
 export const encryptPassword = (password, salt) => {
-  return AES.encrypt(password, salt)
+  return AES.encrypt(password, salt).toString()
 };
 
 // //////////////////////////////////
@@ -44,7 +44,7 @@ export const createNewUser = (username, password) => {
 
   return User.create({
     username: username,
-    password: encryptPassword(password, userSalt).toString(),
+    password: encryptPassword(password, userSalt),
     salt: userSalt,
   })
 };

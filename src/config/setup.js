@@ -24,7 +24,7 @@ sequelizeConnector.authenticate()
       console.log('Users table created. BANG! KABOOM!.');
       console.log('---------------------------------------------\n');
 
-      createNewUser('someusername', 'somepassword')
+      createNewUser("someusername", "somepassword")
         .then(user => {
           console.log("Our doorman has been created!");
           console.log(user.toJSON());
