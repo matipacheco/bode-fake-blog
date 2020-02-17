@@ -1,6 +1,7 @@
 import sequelizeConnector from "./database";
 import FakePost from "../models/fake_post";
 import User from "../models/user";
+import { createNewUser } from "../utils";
 
 sequelizeConnector.authenticate()
   .then(() => {
@@ -23,10 +24,7 @@ sequelizeConnector.authenticate()
       console.log('Users table created. BANG! KABOOM!.');
       console.log('---------------------------------------------\n');
 
-      User.create({
-        username: 'someusername',
-        password: 'somepassword',
-      })
+      createNewUser('someusername', 'somepassword')
         .then(user => {
           console.log("Our doorman has been created!");
           console.log(user.toJSON());

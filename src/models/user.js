@@ -1,8 +1,5 @@
 import Sequelize from "sequelize";
-import Crypto from "crypto-js"
-
 import sequelizeConnector from "../config/database";
-import {createSalt} from "../utils"
 
 class User extends Sequelize.Model {}
 
@@ -17,6 +14,7 @@ User.init({
   },
   salt: {
     type: Sequelize.STRING,
+    allowNull: false
   }
 }, {
   sequelize: sequelizeConnector,
@@ -24,13 +22,9 @@ User.init({
   timestamps: true
 });
 
-User.encryptPassword = function(password, salt) {
-  return Crypto.AES.encrypt(password, salt);
-};
-
-User.afterCreate(newUser => {
-  newUser.salt = createSalt();
-  newUser.password  = Crypto.AES.encrypt(newUser.password, newUser.salt);
-});
+// User.beforeCreate(newUser => {
+//   newUser.salt      = createSalt();
+//   newUser.password  = encryptPassword(newUser.password, newUser.salt);
+// });
 
 export default User;

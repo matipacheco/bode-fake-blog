@@ -2,7 +2,7 @@
   "name": "fake-blog",
   "version": "1.0.0",
   "description": "Lambda function that creates fake content for a fake blog",
-  "main": "src/index.js",
+  "main": "src/postsHandler.js",
   "scripts": {
     "transpile": "babel src -d transpiled",
     "setup": "babel src -d transpiled && node transpiled/config/setup.js",
